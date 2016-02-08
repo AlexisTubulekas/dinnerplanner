@@ -3,31 +3,65 @@ var DinnerModel = function() {
  
 	//TODO Lab 2 implement the data structure that will hold number of guest
 	// and selected dinner options for dinner menu
+	var numberOfGuests = new Number();
+	numberOfGuests = 0;
 
+	// maybe have
+	//this.menu = new {null, null, null};
 
 	this.setNumberOfGuests = function(num) {
 		//TODO Lab 2
+		numberOfGuests = num;
+		
 	}
 
 	// should return 
 	this.getNumberOfGuests = function() {
 		//TODO Lab 2
+		return numberOfGuests;
 	}
 
 	//Returns the dish that is on the menu for selected type 
+	//works if there is only 1 of the type you search for
 	this.getSelectedDish = function(type) {
+		var typeList = [];
+          for (menEl = 0; menEl< dinnerMenu.length; menEl++){ //går igenom varje element i menyn
+            var gottenDish = this.getDish(dinnerMenu[menEl]); //hämtar ut dish om den finns i menyn
+            if (gottenDish.type == type){ 
+              typeList.push(gottenDish.name); //lägger i listan om rätt type
+            }
+          }
+        return typeList; //skriver ut listan med rätta-typ-rätter
+          };
 		//TODO Lab 2
-	}
+	
 
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
 		//TODO Lab 2
-	}
+		var fullList = [];
+		for (menEl = 0; menEl< dinnerMenu.length; menEl++){ //går igenom varje element i menyn
+            var gottenDish = this.getDish(dinnerMenu[menEl]);
+            fullList.push(gottenDish.name);
+        	}
+        return fullList; //skriver ut listan med rätta-typ-rätter
+          };
+	
 
 	//Returns all ingredients for all the dishes on the menu.
-	this.getAllIngredients = function() {
+    this.getAllIngredients = function() {
 		//TODO Lab 2
-	}
+		var ingrList = [];	
+      for (menEl = 0; menEl< dinnerMenu.length; menEl++){ //går igenom varje element i menyn
+            var gottenDish = this.getDish(dinnerMenu[menEl]);
+            var gottenIngr = gottenDish.ingredients;
+          for (var key in gottenIngr){
+            ingrList.push(gottenIngr[key].name);
+          }
+        	}
+        return ingrList; //skriver ut listan med rätta-typ-rätter
+          };
+	
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	this.getTotalMenuPrice = function() {
@@ -75,7 +109,6 @@ var DinnerModel = function() {
 			}
 		}
 	}
-
 
 	// the dishes variable contains an array of all the 
 	// dishes in the database. each dish has id, name, type,
