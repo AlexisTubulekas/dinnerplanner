@@ -3,6 +3,7 @@ var DinnerModel = function() {
    var dinnerMenu = [1, 3, 102];
    var list = [];
    var otherList = [];
+   numberOfGuests=5;
 
 	this.getSelectedDish = function(type) {
 		var typeList = [];
@@ -42,6 +43,27 @@ var DinnerModel = function() {
         	}
         return ingrList; //skriver ut listan med rätta-typ-rätter
           };
+
+
+
+//Returns the total price of the menu (all the ingredients multiplied by number of guests).
+
+ this.getTotalMenuPrice = function() {
+		//TODO Lab 2
+		var priceList = [];	
+      for (menEl = 0; menEl< dinnerMenu.length; menEl++){ //går igenom varje element i menyn
+            var gottenDish = this.getDish(dinnerMenu[menEl]);
+            var gottenIngr = gottenDish.ingredients;
+          for (var key in gottenIngr){
+            priceList.push(gottenIngr[key].price);
+          }
+        	}
+         var sum = priceList.reduce(function(pv, cv) { return pv + cv; }, 0);
+         var sum = sum*numberOfGuests;
+        return ('total price:' + sum); //skriver ut listan med rätta-typ-rätter
+          };
+	
+    
 	
   //function that returns a dish of specific ID
 	this.getDish = function (id) {
