@@ -3,15 +3,22 @@ var DinnerModel = function() {
  
 	//TODO Lab 2 implement the data structure that will hold number of guest
 	// and selected dinner options for dinner menu
-	var numberOfGuests = new Number();
-	numberOfGuests = 0;
+	numberOfGuests = 1;
 
 	// maybe have
 	//this.menu = new {null, null, null};
 
 	this.setNumberOfGuests = function(num) {
 		//TODO Lab 2
-		numberOfGuests = num;
+		//num är värdet av klicket när man ökar/minskar antalet gäster
+		if (num === '1'){
+			numberOfGuests = numberOfGuests + 1;
+
+		}
+		else if (num == '-1'){
+			numberOfGuests =- numberOfGuests - 1;
+		}
+		return numberOfGuests;	
 		
 	}
 
@@ -21,6 +28,7 @@ var DinnerModel = function() {
 		return numberOfGuests;
 	}
 
+	var dinnerMenu = [1,3,102];
 	//Returns the dish that is on the menu for selected type 
 	//works if there is only 1 of the type you search for
 	this.getSelectedDish = function(type) {
@@ -32,7 +40,7 @@ var DinnerModel = function() {
             }
           }
         return typeList; //skriver ut listan med rätta-typ-rätter
-          };
+          }
 		//TODO Lab 2
 	
 
@@ -44,39 +52,68 @@ var DinnerModel = function() {
             var gottenDish = this.getDish(dinnerMenu[menEl]);
             fullList.push(gottenDish.name);
         	}
-        return fullList; //skriver ut listan med rätta-typ-rätter
-          };
+        return fullList; //skriver ut listan av alla rätter i menyn
+          }
 	
 
 	//Returns all ingredients for all the dishes on the menu.
     this.getAllIngredients = function() {
 		//TODO Lab 2
 		var ingrList = [];	
-      for (menEl = 0; menEl< dinnerMenu.length; menEl++){ //går igenom varje element i menyn
+      	for (menEl = 0; menEl< dinnerMenu.length; menEl++){ //går igenom varje element i menyn
             var gottenDish = this.getDish(dinnerMenu[menEl]);
-            var gottenIngr = gottenDish.ingredients;
+            var gottenIngr = gottenDish.ingredients; //lista av ingredient objekt
           for (var key in gottenIngr){
             ingrList.push(gottenIngr[key].name);
           }
         	}
         return ingrList; //skriver ut listan med rätta-typ-rätter
-          };
+          }
 	
 
-	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
-	this.getTotalMenuPrice = function() {
+//Returns the total price of the menu (all the ingredients multiplied by number of guests).
+
+ this.getTotalMenuPrice = function() {
 		//TODO Lab 2
-	}
+		var priceList = [];	
+      for (menEl = 0; menEl< dinnerMenu.length; menEl++){ //går igenom varje element i menyn
+            var gottenDish = this.getDish(dinnerMenu[menEl]);
+            var gottenIngr = gottenDish.ingredients;
+          for (var key in gottenIngr){
+            priceList.push(gottenIngr[key].price);
+          }
+        	}
+         var sum = priceList.reduce(function(pv, cv) { return pv + cv; }, 0);
+         var sum = sum*numberOfGuests;
+        return ('total price:' + sum); //skriver ut listan med rätta-typ-rätter
+          }
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
 		//TODO Lab 2 
-	}
+      var dishToAdd = this.getDish(id);
+      for (menEl = 0; menEl< dinnerMenu.length; menEl++){ //går igenom varje element i menyn
+	      var gottenDish = this.getDish(dinnerMenu[menEl]); //hämtar ut dish om den finns i menyn
+	      if (gottenDish.type == dishToAdd.type){
+	        dinnerMenu.splice(menEl, 1, dishToAdd.id);       
+	      }
+	      else if (gottenDish.id in dinnerMenu){
+	        dinnerMenu.push(dishToAdd.id);
+	      }
+      }
+      return dinnerMenu;
+	};
 
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
 		//TODO Lab 2
+		var dishToRemove = getDish(id);
+		for (menEl = 0; menEl< dinnerMenu.length; menEl++){ //går igenom varje element i menyn
+            var gottenDish = this.getDish(dinnerMenu[menEl]);
+            if (dishToRemove.id == gottenDish.id){
+            	dinnerMenu.splice(menEl, 1);
+            }
 	}
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
