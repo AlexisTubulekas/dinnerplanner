@@ -4,6 +4,22 @@ var DinnerModel = function() {
    var list = [];
    var otherList = [];
    numberOfGuests=5;
+   
+   		this.setNumberOfGuests = function(num) {
+		//TODO Lab 2
+		//num är värdet av klicket när man ökar/minskar antalet gäster
+		if (num === '1'){
+			numberOfGuests = numberOfGuests + 1;
+            console.log('increase');
+
+		}
+		else if (num == '-1'){
+			numberOfGuests = numberOfGuests - 1;
+            console.log('decrease');
+		}
+		return numberOfGuests;	
+		
+	};
 
 	this.getSelectedDish = function(type) {
 		var typeList = [];
