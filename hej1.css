@@ -20,7 +20,7 @@ html {
 }
 .myDinnerBanner{
 	border-style: solid;
-	
+	height:15%;
 	width: 100%;
 	
 	background-color:rgba(233,247,153,0.5);
@@ -153,6 +153,11 @@ hr {
 	margin: 40px;
 }
 
+.dinnerImage{
+	display: inline-block;
+	
+}
+
 .food {
 	width: 85px;
 }
@@ -235,10 +240,97 @@ padding-right: 35px;
 .goBackDinnerButton{
 
 margin-left: 85%;
+margin-top: 20px;
+margin-bottom: 25%;
+
+top: 58%;
 	
     
 }
 
-.chosenDinner{
-	margin-left: 19%;
+.printDinnerButton{
+	margin-top: 20px;
+	margin-bottom: 25%;
+}
+
+.mychosenDinner{
+
+	margin-left: 0%;
+	margin-right:0%;
+	height: 70%;
+	
+}
+#cent {
+	
+	
+}
+
+
+
+.mydinner4ppl{
+	padding-top: 0px;
+	position: absolute;
+    top: 10%;
+}
+
+.hline{
+	
+	margin-bottom: 0px;
+}
+
+.verticalLine {
+    border-left: thick solid black;
+    float: left;
+    height: 50%;
+    margin-top: 20px;
+    width: 20%;
+    
+}
+
+.finalDinner{
+	background-color: green;
+	height:100%;
+
+}
+
+.finalDinnerText{
+
+}
+
+.textNextToImage{
+	margin-top: 10%;
+	padding-right: 30%;
+}
+
+.Sum{
+padding-top: 90%;
+}
+
+#sumText{
+	padding: 1px;
+	margin: 0;
+}
+
+.prepText{
+	float: right;
+}
+
+.prepInstructions{
+	background-color: yellow;
+	height:100%;
+	float: right;
+	}
+
+.finalDinnerImage{
+	float: left;
+	margin-top: 25px;
+}
+
+.finalDinnerText{
+	float: left;
+	margin-top: 20px;
+}
+.finalDinnerTextP{
+	padding: 0;
+	margin: 0;
 }
