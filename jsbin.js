@@ -1,6 +1,7 @@
+
 //DinnerModel Object constructor
 var DinnerModel = function() {
-   var dinnerMenu = [1, 3, 102];
+   var dinnerMenu = [1, 102, 200];
    var list = [];
    var otherList = [];
    numberOfGuests=5;
@@ -59,10 +60,39 @@ var DinnerModel = function() {
           }
         	}
          var sum = priceList.reduce(function(pv, cv) { return pv + cv; }, 0);
-         var sum = sum*numberOfGuests;
+          sum = sum*numberOfGuests;
         return ('total price:' + sum); //skriver ut listan med rätta-typ-rätter
           };
 	
+  	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
+	//it is removed from the menu and the new one added.
+	this.addDishToMenu = function(id) {
+		//TODO Lab 2 
+      var dishToAdd = this.getDish(id);
+      for (menEl = 0; menEl< dinnerMenu.length; menEl++){ //går igenom varje element i menyn
+      var gottenDish = this.getDish(dinnerMenu[menEl]); //hämtar ut dish om den finns i menyn
+      if (gottenDish.type == dishToAdd.type){
+        dinnerMenu.splice(menEl, 1, dishToAdd.id);       
+      }
+      else if (gottenDish.id in dinnerMenu){
+        dinnerMenu.push(dishToAdd.id);
+      }
+      }
+      return dinnerMenu;
+	};
+  
+this.removeDishFromMenu = function(id) {
+		//TODO Lab 2
+		var dishToRemove = this.getDish(id);
+		for (menEl = 0; menEl< dinnerMenu.length; menEl++){ //går igenom varje element i menyn
+            var gottenDish = this.getDish(dinnerMenu[menEl]);
+            if (dishToRemove.id == gottenDish.id){
+            	dinnerMenu.splice(menEl, 1);
+            }
+	    }
+        return dinnerMenu;
+    };
+    
     
 	
   //function that returns a dish of specific ID
@@ -339,6 +369,8 @@ var DinnerModel = function() {
 
 };
     var model = new DinnerModel();
-      console.log(model.getSelectedDish('starter'));
-      console.log(model.getFullMenu());
-      console.log(model.getAllIngredients());
+      //console.log(model.getSelectedDish('starter'));
+     //console.log(model.getFullMenu());
+      //console.log(model.getAllIngredients());
+      console.log(model.addDishToMenu(1));
+      //console.log(model.removeDishFromMenu(1));
