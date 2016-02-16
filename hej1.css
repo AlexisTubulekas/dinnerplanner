@@ -22,6 +22,7 @@ html {
 	border-style: solid;
 	height:15%;
 	width: 100%;
+
 	
 	background-color:rgba(233,247,153,0.5);
 
@@ -287,9 +288,9 @@ top: 58%;
     
 }
 
-.finalDinner{
-	background-color: green;
-	height:100%;
+.finalDinners{
+	background-color:;
+	height: 30%;
 
 }
 
@@ -316,14 +317,16 @@ padding-top: 90%;
 }
 
 .prepInstructions{
-	background-color: yellow;
+	background-color:;
 	height:100%;
-	float: right;
+	float: left;
+	padding-top: 5px;
 	}
 
 .finalDinnerImage{
 	float: left;
 	margin-top: 25px;
+
 }
 
 .finalDinnerText{
@@ -333,4 +336,19 @@ padding-top: 90%;
 .finalDinnerTextP{
 	padding: 0;
 	margin: 0;
+}
+
+#upDown {
+	width: 20px;
+	padding: 0;
+	float: right;
+}
+
+.glypicon {
+	padding: 0;
+	margin: 0;
+}
+
+.btn-group {
+	width: 45px;
 }
