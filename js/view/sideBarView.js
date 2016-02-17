@@ -9,11 +9,15 @@ var SideBarView = function (container,model) {
 	
 	this.numberOfGuests.html(model.getNumberOfGuests());
 
+	var menuList = model.getFullMenu();
+	var dish = menuList[0];
+	var dishTot = model.getDishPrice(dish.id);
+
 	this.pendingGetTotalMenuPrice = container.find("#pendingGetTotalMenuPrice");
-	this.pendingGetTotalMenuPrice.html(model.getTotalMenuPrice());
+	this.pendingGetTotalMenuPrice.html(dishTot);
 
 	this.sekGetTotalMenuPrice = container.find("#sekGetTotalMenuPrice");
-	this.sekGetTotalMenuPrice.html(model.getTotalMenuPrice());
+	this.sekGetTotalMenuPrice.html(dishTot);
 
 
 	
