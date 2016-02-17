@@ -20,12 +20,17 @@
 	<div class="col-md-2 myDinner">.col-xs-2
 		<h3 id="myDin">My Dinner</h3>
 		<p class="col-md-6 people">People</p>  
-		<select>
-		  <option value="1">1</option>
-		  <option value="2">2</option>
-		  <option value="3">3</option>
-		  <option value="4">4</option>
-		</select>
+		<div class="btn-group" id="guestSelect">
+			<button type="button"><span id="numberOfGuests"></span></button>
+			<div id="upDown">
+				<button type="button" id="upDown">
+					<span class="glyphicon glyphicon-chevron-up"></span>
+				</button>
+				<button type="button" id="upDown">
+					<span class="glyphicon glyphicon-chevron-down"></span>
+				</button>
+			</div>
+		</div>
 		
 		<table class="table table-hover tabell">
 			<tr>
@@ -34,14 +39,14 @@
 			</tr>
 			<tr style="color:red" id="pending">
 				<td class="pending" id="paddyDish">Pending</td>
-				<td class="pending">77.20</td>
+				<td class="pending"><span id="pendingGetTotalMenuPrice"></span></td>
 			</tr>
 		</table>
 		<hr class="pending">
 		<table class="table table-hover tabell sektabell" style="padding: 5%">
 			<tr style="color:red">
 				<td class="pending col-md-7"></td>
-				<td id="SEK"><center>SEK 77.20</center></td>
+				<td id="SEK"><center>SEK <span id="sekGetTotalMenuPrice"></span></center></td>
 			</tr>
 		</table>
 		<div class="col-md-6" id="btn">
@@ -51,14 +56,16 @@
 	</div>
 
 	<div class="chosenCourse col-md-10">
-		<h2>Souvlaki</h2>
+		<span id="foodImageSpan"></span>
+		<!--
+		
 		<div class="col-md-3 foodImage">
 			<img src="http://www.ica.se/imagevaultfiles/id_64186/cf_1286/souvlaki-372822.jpg" class="img-thumbnail" alt="Cinque Terre" width="500" height="500">
 			<p id="imagetext">Natum postea an sed, pri dolore tempor doming ex. Mea apeirian volutpat explicari ne, nibh integre sea an. Malisum pontegre sea an. Malis iuvaret mediocrest id graenostrum, dictas intellegebat in has. Zril nostrum posidonium ei sed, iudico voluptaria reformidans ex his.</p>
-		</div>
+		</div>-->
 
-	<div class="col-md-4 ingridients">
-		<h3 class="ingridientsForPersons">Ingridients for 4 persons</h3>
+	<!--<div class="col-md-4 ingridients">
+		<h3 class="ingridientsForPersons">Ingredients for 4 persons</h3>
 		<hr>
 		<table class="table table-hover">
 			<tr>
@@ -119,7 +126,7 @@
 
 
 	</div>
-
+-->
 
 
 
@@ -127,29 +134,16 @@
 
 </div>
 
+<script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	<!-- The application JavaScript code -->
+	<script src="js/screen4.js"></script>
+	<script src="js/model/dinnerModel.js"></script>
+	<script src="js/view/sideBarView.js"></script>
+	<script src="js/view/mainView4.js"></script>
+	<!--<script src="js/view/exampleViewController.js"></script>-->
 </body>
 
 
