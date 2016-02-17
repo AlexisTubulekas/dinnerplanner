@@ -20,12 +20,17 @@
 	<div class="col-md-2 myDinner">.col-xs-2
 		<h3 id="myDin">My Dinner</h3>
 		<p class="col-md-6 people">People</p>  
-		<select>
-		  <option value="1">1</option>
-		  <option value="2">2</option>
-		  <option value="3">3</option>
-		  <option value="4">4</option>
-		</select>
+		<div class="btn-group" id="guestSelect">
+			<button type="button"><span id="numberOfGuests"></span></button>
+			<div id="upDown">
+				<button type="button" id="upDown">
+					<span class="glyphicon glyphicon-chevron-up"></span>
+				</button>
+				<button type="button" id="upDown">
+					<span class="glyphicon glyphicon-chevron-down"></span>
+				</button>
+			</div>
+		</div>
 		
 		<table class="table table-hover tabell">
 			<tr>
@@ -34,22 +39,23 @@
 			</tr>
 			<tr style="color:red" id="pending">
 				
-				<td class="pending" id="paddyDish">Souvlaki</td>
-				<td class="pending">77.20
+				<td class="pending" id="paddyDish"><span id="selectedDish"></span></td>
+				<td class="pending">
+					<span id="selectedDishPrice"></span>
 					<button class="X">
 					<p class="Xtext" style="font-size:10px;">X</p>
 				</button></td>
 			</tr>
 			<tr>
 				<td class="pending" id="paddyDish">Pending</td>
-				<td class="pending">0.00</td>
+				<td class="pending"><span id="pendingGetTotalMenuPrice"></span></td>
 			</tr>
 		</table>
 		<hr class="pending">
 		<table class="table table-hover tabell sektabell" style="padding: 5%">
 			<tr style="color:red">
 				<td class="pending col-md-7"></td>
-				<td id="SEK"><center>SEK 77.20</center></td>
+				<td id="SEK"><center>SEK <span id="sekGetTotalMenuPrice"></span></center></td>
 			</tr>
 		</table>
 		<div class="col-md-6" id="btn">
@@ -75,12 +81,16 @@
 
 		</div>
 		<div class="images">
+			<span id="imageLoop"></span>
 
+			
+				
+			<!--
 			<div class="col-md-1 image">
 
 				<img src="http://www.ica.se/imagevaultfiles/id_64186/cf_1286/souvlaki-372822.jpg" class="img-thumbnail" alt="Cinque Terre" width="150" height="200">
 				<center>
-				<button class="food" data-toggle="collapse" data-target="#demo">Souvlaki</button>
+				<button class="food" data-toggle="collapse" data-target="#demo"><span id=""></span></button>
 
 				<div id="demo" class="collapse">
 				Lorem ipsum dolor text....
@@ -158,7 +168,7 @@
 				<p class="text-justify description">Aaaaaa skdaskd askd kasdn askjdj dlaksjd lkasjd lkaj</p>
 				
 			</div>
-			
+			-->
 		</div>
 
 
@@ -172,29 +182,16 @@
 
 </div>
 
+<script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	<!-- The application JavaScript code -->
+	<script src="js/screen5.js"></script>
+	<script src="js/model/dinnerModel.js"></script>
+	<script src="js/view/sideBarView5.js"></script>
+	<script src="js/view/mainView3.js"></script>
+	<!--<script src="js/view/exampleViewController.js"></script>-->
 </body>
 
 
